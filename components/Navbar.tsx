@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Brain } from "lucide-react";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 import { motion, AnimatePresence } from "framer-motion";
@@ -24,7 +24,19 @@ export default function Navbar() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-20">
                     {/* Logo */}
-                    <div className="flex-shrink-0 flex items-center">
+                    {/* Logo */}
+                    <div className="flex-shrink-0 flex items-center gap-2">
+                        {/* 
+                            HOW TO CHANGE LOGO:
+                            1. Upload your logo image to the 'public' folder (e.g., public/logo.png).
+                            2. Import Image from "next/image".
+                            3. Replace the <Brain /> icon and text below with:
+                               <Image src="/logo.png" alt="Logo" width={150} height={50} />
+                        */}
+                        <div className="w-10 h-10 bg-[#52796F] rounded-full flex items-center justify-center text-white">
+                            {/* You can change this icon to anything else from lucide-react */}
+                            <Brain size={24} />
+                        </div>
                         <Link href="/" className="text-2xl font-bold text-[#2F3E46] tracking-tight">
                             Kalpana Shakya
                         </Link>
