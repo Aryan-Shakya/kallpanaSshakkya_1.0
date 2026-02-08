@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary: #52796F;
+    --color-primary-foreground: #ffffff;
+    --color-secondary: #CAD2C5;
+    --color-secondary-foreground: #2F3E46;
+    --color-accent: #D8B4FE;
+    --color-accent-foreground: #4C1D95;
+    --color-muted: #F0F4F8;
+    --color-muted-foreground: #64748B;
+    --color-background: #FAFAF9;
+    --color-foreground: #334155;
+}
+
+/* Custom Utilities */
+.glass {
+    background-color: rgba(255, 255, 255, 0.90);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid rgba(82, 121, 111, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, #52796F, #A4C3B2);
+}
+
+.btn-primary {
+    background-color: var(--color-primary);
+    color: var(--color-primary-foreground);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #354F52;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(82, 121, 111, 0.3);
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* Smooth Transitions */
+* {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 200ms;
+}
+
+/* Better Focus States */
+:focus-visible {
+    outline: 2px solid #52796F;
+    outline-offset: 2px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-track {
+    background: #F0F4F8;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #A4C3B2;
+    border-radius: 6px;
+    border: 2px solid #F0F4F8;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #52796F;
+}
+
+/* Selection */
+::selection {
+    background-color: #A4C3B2;
+    color: #2F3E46;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Better Typography for Blog */
+.prose {
+    max-width: 65ch;
+}
+
+.prose h1, .prose h2, .prose h3, .prose h4 {
+    font-weight: 700;
+    line-height: 1.3;
+    scroll-margin-top: 100px;
+}
+
+.prose p {
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.prose strong {
+    font-weight: 600;
+    color: #2F3E46;
+}
+
+.prose a {
+    color: #52796F;
+    text-decoration: underline;
+    text-decoration-color: #A4C3B2;
+    text-underline-offset: 3px;
+}
+
+.prose a:hover {
+    color: #354F52;
+    text-decoration-color: #52796F;
+}
+
+/* Loading States */
+.loading-skeleton {
+    background: linear-gradient(90deg, #F0F4F8 25%, #E0F2F1 50%, #F0F4F8 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Card Hover Effects */
+.card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(82, 121, 111, 0.15);
+}
